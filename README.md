@@ -1,7 +1,8 @@
 # About this project:
  This is a snake game written with pygame.
  I try to do this project with a lot of OOP technics.
- Disclaim : These ideas are not come from myself, but from this guy :
+
+ Disclaim : These ideas are not come from myself originally, but from this guy :
  https://github.com/ChristianD37/YoutubeTutorials/tree/master/Game%20States
 
 ## game.py:
@@ -15,10 +16,12 @@ The program implements character like snake and food in the game
 
 ### Contain 2 parts:
 1. Snake
+
 Inherented from `Item`, and implements how the snake works in game.
 * Bugs : Turn around very quick will result in self eating.
 
 2. Food
+
 The food in game. It'll have more features in the future.
 
 ## utilities:
@@ -37,10 +40,12 @@ An interface for other states. `update` and `render` method should be implement 
 
 ### title.py:
 Title scene, the game will enter this state immediately when the game is initialized.
+
 I'll add setting menu for more features in the future.
 
 ### play.py:
 It comes after title scene, initialized when start to play the game.
+
 It will load settings and game mode from setting menu in the future.
 
 ### pause.py:
