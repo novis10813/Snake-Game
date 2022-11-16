@@ -50,6 +50,35 @@ class Snake(pg.sprite.Sprite, item):
             self.direction = Vector2(0, self.size)
             self.directions = {"right":1, "left":1, "up":0, "down":1}
     
+    def load_sprite(self):
+        self.head = pg.image.load("./assets/snake/SnakeHead.png").convert_alpha()
+        self.body_s = pg.image.load("./assets/snake/SnakeBody_straight.png").convert_alpha()
+        self.body_b = pg.image.load("./assets/snake/SnakeBody_bend.png").convert_alpha()
+        self.tail = pg.image.load("./assets/snake/SnakeTail.png").convert_alpha()
+        
+        directions = {
+            "head_up": self.head,
+            "head_down": pg.transform.rotate(self.head, 180),
+            "head_right": pg.transform.rotate(self.head, 90),
+            "head_left": pg.transform.rotate(self.head, -90),
+            "body_up": self.body_s,
+            "body_down": pg.transform.rotate(self.body_s, 180),
+            "body_right": pg.transform.rotate(self.body_s, 90),
+            "body_left": pg.transform.rotate(self.body_s, -90),
+            "body_RD": self.body_b,
+            "body_UR": pg.transform.rotate(self.body_b, -90),
+            "body_LU": pg.transform.rotate(self.body_b, 180),
+            "body_DL": pg.transform.rotate(self.body_b, 90),
+            "body_LD": pg.transform.flip(self.head, flip_y=True),
+            "body_UL": pg.transform.rotate(pg.transform.flip(self.head, flip_y=True), 90),
+            "body_RU": pg.transform.rotate(pg.transform.flip(self.head, flip_y=True), 180),
+            "body_DR": pg.transform.rotate(pg.transform.flip(self.head, flip_y=True), -90),
+            "tail_up": self.tail,
+            "tail_down": pg.transform.rotate(self.tail, 180),
+            "tail_right": pg.transform.rotate(self.tail, 90),
+            "tail_left": pg.transform.rotate(self.tail, -90),
+        }
+    
     def check_borders(self):
         if self.rect.left < 0 or self.rect.right > self.game.WINDOW_WIDTH:
             self.game.state_stack[-1].new_game()
