@@ -11,18 +11,28 @@ The main program to run the "game window"
 * Game with different menus is basically a stack.
 * So it's easy to modularize different scene in game.
 
-## character.py:
-The program implements character like snake and food in the game
+## characters:
+The programs implement characters like snake and food in the game
 
-### Contain 2 parts:
-1. Snake
+### character.py:
+The interface of everything in this game. It inherits from `pygame.sprite.Sprite` and it has two method:
+1. load_sprite : load skin and initialize sprite.
+2. get_random_position : initialize random position for the block.
 
-Inherented from `Item`, and implements how the snake works in game.
+### snake.py:
+* NOT FINISHED YET!!!
+There will be three kinds of classes in the future.
+1. segment : It inherits from `BasicBlock`, which will decide the part of the snake.
+2. special segment (not implement yet) : Will inherit from `segment`, for different game mode in the future.
+3. Snake : Initialize group of segment, and it will control the behavior of those segments.
+* So far it inherits from `BasicBlock` for direct use.
 * Bugs : Turn around very quick will result in self eating.
 
-2. Food
-
-The food in game. It'll have more features in the future.
+### food.py:
+There will be three kinds of classes in the future.
+1. BasicFood : Inherit from `BasicBlock`. Just load the apple skin.
+2. special food (not implement yet) : Will inherit from `BasicFood`, for different game mode in the future.
+3. Food : Initialize group of food, you can decide how many apples are there in a game now.
 
 ## utilities:
 A folder with tools that might help
@@ -50,3 +60,8 @@ It will load settings and game mode from setting menu in the future.
 
 ### pause.py:
 "Press P to Pause"
+
+### dead.py:
+when die, the game will go into this state.
+
+You can choose to restart the game or go back to menu.
