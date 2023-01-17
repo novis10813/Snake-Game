@@ -2,7 +2,7 @@
  This is a snake game written with pygame.
  I try to do this project with a lot of OOP technics.
 
- Disclaim : These ideas are not come from myself originally, but from this guy :
+ Disclaim : The idea of the whole structure doesn't come up with by myself originally, but it is from this guy :
  https://github.com/ChristianD37/YoutubeTutorials/tree/master/Game%20States
 
 ## game.py:
